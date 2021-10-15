@@ -6,8 +6,8 @@ namespace ProEventos.Persistence.Interfaces
     {
         void Add<T>(T entity) where T: class;
         void Update<T>(T entity) where T: class;
-        void Delete<T>(T entity) where T: class;
-        void DeleteRange<T>(T[] entity) where T: class;
+        void Remove<T>(T entity) where T: class;
+        void RemoveRange<T>(T[] entityArray) where T: class;
         Task<bool> SaveChangesAsync();
 
         Task<Evento[]> GetAllEventosAsync(bool includePalestrantes);
