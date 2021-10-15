@@ -1,8 +1,10 @@
-using Microsoft.OpenApi.Models;
+using ProEventos.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<DataContext>();
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(c =>
