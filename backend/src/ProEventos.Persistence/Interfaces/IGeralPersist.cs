@@ -1,5 +1,3 @@
-using ProEventos.Domain.Models;
-
 namespace ProEventos.Persistence.Interfaces
 {
     public interface IGeralPersist

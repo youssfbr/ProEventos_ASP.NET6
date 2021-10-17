@@ -1,4 +1,8 @@
+using ProEventos.Application;
+using ProEventos.Application.Interfaces;
+using ProEventos.Persistence;
 using ProEventos.Persistence.Data;
+using ProEventos.Persistence.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ProEventosContext>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = 
+        Newtonsoft.Json.ReferenceLoopHandling.Ignore
+    );
+
+builder.Services.AddScoped<IGeralPersist, GeralPersist>();
+builder.Services.AddScoped<IEventoService, EventoService>();
+builder.Services.AddScoped<IEventoPersist, EventoPersist>();
+
+builder.Services.AddCors();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new() { Title = "ProEventos.API", Version = "v1" });
