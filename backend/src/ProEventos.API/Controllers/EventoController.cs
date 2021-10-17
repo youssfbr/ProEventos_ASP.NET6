@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ProEventos.Domain.Models;
 using ProEventos.Application.Interfaces;
-using ProEventos.API.Dtos;
 
 namespace ProEventos.API.Controllers;
 
@@ -21,24 +20,9 @@ public class EventoController : ControllerBase
     {
         try
         {
-             var eventos = await _eventoService.GetAllEventosAsync(true);
+             var eventos = await _eventoService.GetAllEventosAsync(true); 
 
-             var eventosRetorno = new List<EventoDto>();
-
-             foreach (var evento in eventos)
-             {
-                 eventosRetorno.Add(new EventoDto() {
-                     Id = evento.Id,
-                     Local = evento.Local,
-                     Tema = evento.Tema,
-                     QtsPessoas = evento.QtsPessoas,
-                     ImagemURL = evento.ImagemURL,
-                     Telefone = evento.Telefone,
-                     Email = evento.Email
-                 });
-             }
-
-             return Ok(eventosRetorno) ;
+             return Ok(eventos);
         }
         catch (Exception ex)
         {            
