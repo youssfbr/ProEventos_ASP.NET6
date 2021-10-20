@@ -1,10 +1,11 @@
-<h1>Eventos</h1>
+<h2>Eventos</h2>
 <hr />
 
-<div action="" class="form-inline">
+<div class="form-inline">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
       <div class="d-flex">
+        <label class="mt-2 me-3">Filtro:</label>
         <input
           class="form-control me-2"
           type="search"
@@ -12,7 +13,6 @@
           aria-label="Buscar"
           [(ngModel)]="filtroLista"
         />
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
       </div>
     </div>
   </nav>
@@ -53,8 +53,11 @@
       <td>{{evento.local}}</td>
       <td>{{evento.dataEvento}}</td>
       <td>{{evento.qtdPessoas}}</td>
-      <td>{{evento}}</td>
-      <td>{{evento}}</td>
+      <td></td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm me-2">Editar</button>
+        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+      </td>
     </tr>
   </tbody>
   <tfoot *ngIf="!eventos.length">
@@ -65,3 +68,5 @@
     </tr>
   </tfoot>
 </table>
+
+<!--{{eventos | json}} -->
