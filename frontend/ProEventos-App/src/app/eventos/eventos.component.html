@@ -20,7 +20,13 @@
   <thead class="table-dark">
     <tr>
       <th>#</th>
-      <th>Imagem</th>
+      <th>
+        <button type="button" class="btn btn-outline-light btn-sm"
+        (click)="alterarImagem()">
+          {{ exibirImagem ? 'Ocultar' : 'Exibir'}}
+
+        </button>
+      </th>
       <th>Tema</th>
       <th>Local</th>
       <th>Data</th>
@@ -32,7 +38,14 @@
   <tbody *ngIf="eventos && eventos.length">
     <tr *ngFor="let evento of eventos">
       <td>{{evento.id}}</td>
-      <td>{{evento.imagemURL}}</td>
+      <td>
+        <img *ngIf="exibirImagem"
+             src="/assets/{{evento.imagemURL}}"
+             alt="{{evento.imagemURL}}"
+             [style.width.px]="larguraImagem"
+             [style.margin.px]="margemImagem"
+        />
+      </td>
       <td>{{evento.tema}}</td>
       <td>{{evento.local}}</td>
       <td>{{evento.dataEvento}}</td>
