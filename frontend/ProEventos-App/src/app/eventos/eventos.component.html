@@ -1,7 +1,45 @@
 <h1>Eventos</h1>
+<hr />
 
-<div *ngFor="let evento of eventos">
-  <p><b>Tema:</b>{{evento.tema}}</p>
-  <p><b>Local:</b>{{evento.local}}</p>
-  <hr />
-</div>
+
+
+<form action="" class="form-inline">
+
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
+    </div>
+  </nav>
+
+</form>
+
+<table class="table  table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>#</th>
+      <th>Imagem</th>
+      <th>Tema</th>
+      <th>Local</th>
+      <th>Data</th>
+      <th>Qtd Pessoas</th>
+      <th>Lote</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let evento of eventos">
+      <td>{{evento.id}}</td>
+      <td>{{evento.imagemURL}}</td>
+      <td>{{evento.tema}}</td>
+      <td>{{evento.local}}</td>
+      <td>{{evento.dataEvento}}</td>
+      <td>{{evento.qtdPessoas}}</td>
+      <td>{{evento}}</td>
+      <td>{{evento}}</td>
+    </tr>
+  </tbody>
+</table>
+
