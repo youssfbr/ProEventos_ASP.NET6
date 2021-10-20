@@ -1,21 +1,23 @@
 <h1>Eventos</h1>
 <hr />
 
-
-
-<form action="" class="form-inline">
-
+<div action="" class="form-inline">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+      <div class="d-flex">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="buscar"
+          aria-label="Buscar"
+          [(ngModel)]="filtroLista"
+        />
         <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
+      </div>
     </div>
   </nav>
-
-</form>
-
+</div>
+<h3>{{filtroLista}}</h3>
 <table class="table  table-striped">
   <thead class="table-dark">
     <tr>
@@ -36,7 +38,7 @@
     </tr>
   </thead>
   <tbody *ngIf="eventos && eventos.length">
-    <tr *ngFor="let evento of eventos">
+    <tr *ngFor="let evento of eventosFiltrados">
       <td>
         <img [collapse]="!exibirImagem"
              [isAnimated]="true"
@@ -63,4 +65,3 @@
     </tr>
   </tfoot>
 </table>
-
