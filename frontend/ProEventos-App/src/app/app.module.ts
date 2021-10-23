@@ -1,3 +1,4 @@
+import { EventoService } from './services/evento.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,7 +30,7 @@ import { PalestrantesComponent } from './palestrantes/palestrantes.component';
     TooltipModule.forRoot(),
     CollapseModule.forRoot()
   ],
-  providers: [],
+  providers: [EventoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
