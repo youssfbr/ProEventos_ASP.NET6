@@ -35,12 +35,6 @@ export class EventosComponent implements OnInit {
 
   public ngOnInit(): void {
     this.spinner.show();
-
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 1000);
-
     this.getEventos();
   }
 
@@ -71,7 +65,11 @@ export class EventosComponent implements OnInit {
         this.eventos = eventos;
         this.eventosFiltrados = this.eventos;
       },
-      error: (error: any) => console.log(error)
+      error: () => {
+        this.spinner.hide();
+        this.toastr.error('Erro ao carregar os Eventos.', 'Erro');
+      },
+      complete: () => this.spinner.hide()
     });
   }
 
