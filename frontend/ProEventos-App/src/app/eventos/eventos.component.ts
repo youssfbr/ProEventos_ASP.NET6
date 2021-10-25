@@ -2,9 +2,11 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
+
+import { Evento } from './../models/Evento';
 
 import { EventoService } from './../services/evento.service';
-import { Evento } from './../models/Evento';
 
 @Component({
   selector: 'app-eventos',
@@ -27,10 +29,18 @@ export class EventosComponent implements OnInit {
   constructor(
     private eventoService: EventoService,
     private modalService: BsModalService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) { }
 
   public ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
+
     this.getEventos();
   }
 
@@ -73,7 +83,7 @@ export class EventosComponent implements OnInit {
   confirm(): void {
     this.modalRef?.hide();
     this.toastr.success('Evento deletado.', 'Deletado');
-    
+
   }
 
   decline(): void {
