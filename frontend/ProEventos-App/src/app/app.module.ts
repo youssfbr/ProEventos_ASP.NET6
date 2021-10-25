@@ -15,7 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
+import { NavComponent } from './shared/components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { EventosComponent } from './components/eventos/eventos.component';
