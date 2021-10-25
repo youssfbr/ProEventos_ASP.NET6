@@ -1,4 +1,19 @@
-<div class="mt-3">
-  <h2 >{{ title }}</h2>
-  <hr />
+<!-- div class="mt-3">
+</!-->
+
+<div class="d-flex align-items-center p-3 my-3 text-white bg-secondary rounded shadow-sm">
+  <div class="d-flex align-items-center me-auto">
+    <i class="{{iconClass}} me-3"></i>
+    <!-- img class="me-3" src="/docs/5.1/assets/brand/bootstrap-logo-white.svg" alt="" width="48" height="38" -->
+    <div class="lh-100">
+      <h2 class="mb-0">{{title}}</h2>
+      <small>{{subtitle}}</small>
+    </div>
+  </div>
+  <div *ngIf="buttonList">
+    <button class="btn btn-outline-light me-3">
+      Listar {{title}}
+    </button>
+  </div>
+
 </div>

@@ -7,7 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TitleComponent implements OnInit {
 
+  @Input() iconClass = "fa fa-user";
   @Input() title?: string;
+  @Input() subtitle?: string = "Desde 2021";
+  @Input() buttonList = false;
 
   constructor() { }
 
