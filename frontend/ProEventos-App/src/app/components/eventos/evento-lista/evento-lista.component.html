@@ -7,7 +7,7 @@
           <div class="input-group-text">Filtro:</div>
         </div>
         <input
-          class="form-control me-3"
+          class="form-control me-2"
           type="search"
           placeholder="Buscar por Tema e Local"
           [(ngModel)]="filtroLista"
@@ -15,14 +15,14 @@
       </div>
     </div>
     <div>
-      <a class="d-flex btn btn-outline-primary" href="#">
+      <a class="d-flex btn btn-outline-primary" routerLink="/eventos/detalhe">
         <i class="fa fa-plus-circle my-1"></i>
-        <span class="ml-1 d-none d-sm-block">Novo</span>
+        <span class="ml-1 d-none d-sm-block" >Novo</span>
       </a>
     </div>
   </div>
   <h3>{{filtroLista}}</h3>
-  <table class="table  table-striped">
+  <table class="table table-striped table-hover">
     <thead class="table-dark">
       <tr>
         <th class="d-none d-md-table-cell">
@@ -42,7 +42,10 @@
       </tr>
     </thead>
     <tbody *ngIf="eventos && eventos.length">
-      <tr *ngFor="let evento of eventosFiltrados">
+      <tr *ngFor="let evento of eventosFiltrados"
+        (click)="detalheEvento(evento.id)"
+        style="cursor: pointer;"
+      >
         <td class="d-none d-md-table-cell">
           <img [collapse]="!exibirImagem"
                [isAnimated]="true"

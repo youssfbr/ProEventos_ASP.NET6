@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
@@ -30,7 +31,8 @@ export class EventoListaComponent implements OnInit {
     private EventoService: EventoService,
     private modalService: BsModalService,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -88,5 +90,10 @@ export class EventoListaComponent implements OnInit {
     this.modalRef?.hide();
   }
   /* Modal Fim */ /////////////////////////////////////////////////////////////
+
+  detalheEvento(id: number): void {
+    console.log(id);
+    this.router.navigate([`eventos/detalhe/${id}`]);
+  }
 
 }
