@@ -4,37 +4,49 @@
       <div class="row mb-3">
         <div>
           <label for="tema">Tema:</label>
-          <input type="text" class="form-control" id="tema" formControlName="tema" placeholder="Insira o Tema" />
+          <input type="text" class="form-control"
+            [ngClass]="{'is-invalid': form.get('tema')?.errors && form.get('tema')?.touched }"
+            id="tema" formControlName="tema" placeholder="Insira o Tema"
+          />
+          <div *ngIf="form.get('tema')?.hasError('required')" class="invalid-feedback">Campo obrigatório.</div>
+          <div *ngIf="form.get('tema')?.hasError('minlength')" class="invalid-feedback">Campo deve ter no mínimo 4 caracteres.</div>
+          <div *ngIf="form.get('tema')?.hasError('maxlength')" class="invalid-feedback">Campo deve ter no máximo 50 caracteres.</div>
         </div>
       </div>
 
       <div class="row mb-3">
         <div class="col-md-8">
           <label for="local">Local:</label>
-          <input type="text" class="form-control" id="local" formControlName="local" placeholder="Insira o Local" />
+          <input type="text" class="form-control is-invalid" id="local" formControlName="local" placeholder="Insira o Local" />
+          <div class="invalid-feedback">Campo obrigatório.</div>
         </div>
         <div class="col-md-4">
           <label for="dataEvento">Data e Hora:</label>
-          <input type="datetime" class="form-control" id="dataEvento" formControlName="dataEvento" placeholder="Insira a Data e Hora" />
+          <input type="datetime" class="form-control is-invalid" id="dataEvento" formControlName="dataEvento" placeholder="Insira a Data e Hora" />
+          <div class="invalid-feedback">Campo obrigatório.</div>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-2">
           <label for="qtdPessoas">Qtd Pessoas:</label>
-          <input type="text" class="form-control" id="qtdPessoas" formControlName="qtdPessoas" placeholder="Insira a Quantidade de Pessoas" />
+          <input type="text" class="form-control is-invalid" id="qtdPessoas" formControlName="qtdPessoas" placeholder="Insira a Quantidade de Pessoas" />
+          <div class="invalid-feedback">Campo obrigatório.</div>
         </div>
         <div class="col-md-2">
           <label for="telefone">Telefone:</label>
-          <input type="text" class="form-control" id="telefone" formControlName="telefone" placeholder="(000) 90000-0000" />
+          <input type="text" class="form-control is-invalid" id="telefone" formControlName="telefone" placeholder="(000) 90000-0000" />
+          <div class="invalid-feedback">Campo obrigatório.</div>
         </div>
         <div class="col-md-4">
           <label for="email">e-mail:</label>
-          <input type="text" class="form-control" id="email" formControlName="email" placeholder="Insira o e-mail" />
+          <input type="text" class="form-control is-invalid" id="email" formControlName="email" placeholder="Insira o e-mail" />
+          <div class="invalid-feedback">Campo obrigatório.</div>
         </div>
         <div class="col-md-4">
           <label for="imagemURL">Imagem:</label>
-          <input type="file" class="form-control" id="imagemURL" formControlName="imagemURL" placeholder="" />
+          <input type="file" class="form-control is-invalid" id="imagemURL" formControlName="imagemURL" placeholder="" />
+          <div class="invalid-feedback">Campo obrigatório.</div>
         </div>
       </div>
 
