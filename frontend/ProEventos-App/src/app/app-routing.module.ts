@@ -11,7 +11,7 @@ import { EventoListaComponent } from './components/eventos/evento-lista/evento-l
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
-import { PerfilComponent } from './components/user/perfil/perfil.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 import { ContatosComponent } from './components/contatos/contatos.component';
 
