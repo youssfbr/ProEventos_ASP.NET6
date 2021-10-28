@@ -1,36 +1,36 @@
 <div class="card rouded shadow-sm">
-  <form>
+  <form [formGroup]="form">
     <div class="p-3">
       <div class="row mb-3">
         <div>
           <label for="tema">Tema:</label>
-          <input type="text" class="form-control" id="tema" placeholder="Insira o Tema" />
+          <input type="text" class="form-control" id="tema" formControlName="tema" placeholder="Insira o Tema" />
         </div>
       </div>
 
       <div class="row mb-3">
         <div class="col-md-8">
           <label for="local">Local:</label>
-          <input type="text" class="form-control" id="local" placeholder="Insira o Local" />
+          <input type="text" class="form-control" id="local" formControlName="local" placeholder="Insira o Local" />
         </div>
         <div class="col-md-4">
-          <label for="dataHora">Data e Hora:</label>
-          <input type="datetime" class="form-control" id="dataHora" placeholder="Insira a Data e Hora" />
+          <label for="dataEvento">Data e Hora:</label>
+          <input type="datetime" class="form-control" id="dataEvento" formControlName="dataEvento" placeholder="Insira a Data e Hora" />
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-2">
-          <label for="qtd">Qtd Pessoas:</label>
-          <input type="text" class="form-control" id="qtd" placeholder="Insira a Quantidade de Pessoas" />
+          <label for="qtdPessoas">Qtd Pessoas:</label>
+          <input type="text" class="form-control" id="qtdPessoas" formControlName="qtdPessoas" placeholder="Insira a Quantidade de Pessoas" />
         </div>
         <div class="col-md-4">
-          <label for="tel">Telefone:</label>
-          <input type="text" class="form-control" id="tel" placeholder="(000) 90000-0000" />
+          <label for="telefone">Telefone:</label>
+          <input type="text" class="form-control" id="telefone" formControlName="telefone" placeholder="(000) 90000-0000" />
         </div>
         <div class="col-md-6">
           <label for="email">e-mail:</label>
-          <input type="text" class="form-control" id="email" placeholder="Insira o e-mail" />
+          <input type="text" class="form-control" id="email" formControlName="email" placeholder="Insira o e-mail" />
         </div>
       </div>
 
