@@ -13,6 +13,7 @@ export class EventoDetalheComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.validation();
   }
 
   validation(): void {
