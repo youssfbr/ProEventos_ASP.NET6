@@ -9,39 +9,79 @@
 
   <div class="col-md-6">
 
-    <form class="row g-3">
+    <form class="row g-3 "[formGroup]="form">
+
+      <p>Form value: {{ form.value | json }}</p>
+      <p>Form valid: {{ form.valid | json }}</p>
+
       <div class="d-block d-md-none">
         <h3 class="border-bottom">Cadastro de Usuário</h3>
       </div>
 
       <div class="col-md-6">
-        <label for="primeiroNome" class="form-label">Primeiro Nome:</label>
-        <input type="text" class="form-control" id="primeiroNome" placeholder="Insira o Primeiro nome" />
+        <label for="primeiroNome" class="form-label">* Primeiro Nome:</label>
+        <input type="text" class="form-control"
+        [ngClass]="{'is-invalid': f.primeiroNome.errors && f.primeiroNome.touched }"
+        formControlName="primeiroNome" id="primeiroNome" placeholder="Insira o Primeiro Nome"
+        />
+        <div *ngIf="f.primeiroNome.errors?.required" class="invalid-feedback">Campo obrigatório.</div>
       </div>
+
       <div class="col-md-6">
-        <label for="ultimoNome" class="form-label">Último Nome:</label>
-        <input type="text" class="form-control" id="ultimoNome" placeholder="Insira o Último nome" />
+        <label for="ultimoNome" class="form-label">* Último Nome:</label>
+        <input type="text" class="form-control"
+        [ngClass]="{'is-invalid': f.ultimoNome.errors && f.ultimoNome.touched }"
+        formControlName="ultimoNome" id="ultimoNome" placeholder="Insira o Último Nome"
+        />
+        <div *ngIf="f.ultimoNome.errors?.required" class="invalid-feedback">Campo obrigatório.</div>
       </div>
+
       <div class="col-12">
-        <label for="nomeCompleto">Nome Completo:</label>
-        <input type="text" class="form-control" id="nomeCompleto" placeholder="Insira o Nome Completo" />
+        <label for="nomeCompleto" class="form-label">* Nome Completo:</label>
+        <input type="text" class="form-control"
+        [ngClass]="{'is-invalid': f.nomeCompleto.errors && f.nomeCompleto.touched }"
+        formControlName="nomeCompleto" id="nomeCompleto" placeholder="Insira o Nome Completo"
+        />
+        <div *ngIf="f.nomeCompleto.errors?.required" class="invalid-feedback">Campo obrigatório.</div>
       </div>
+
       <div class="col-12">
-        <label for="email" class="form-label">e-mail:</label>
-        <input type="email" class="form-control" id="email" placeholder="Insira o e-mail" />
+        <label for="email" class="form-label">* e-mail:</label>
+        <input type="email" class="form-control"
+        [ngClass]="{'is-invalid': f.email.errors && f.email.touched }"
+        formControlName="email" id="email" placeholder="Insira o e-mail"
+        />
+        <div *ngIf="f.email.errors?.required" class="invalid-feedback">Campo obrigatório.</div>
+        <div *ngIf="f.email.errors?.email" class="invalid-feedback">Deve ser um endereço de e-mail válido.</div>
       </div>
+
       <div class="col-12">
-        <label for="usuario" class="form-label">Usuário:</label>
-        <input type="text" class="form-control" id="usuario" placeholder="Insira o nome de Usuário" />
+        <label for="usuario" class="form-label">* Usuário:</label>
+        <input type="text" class="form-control"
+        [ngClass]="{'is-invalid': f.usuario.errors && f.usuario.touched }"
+        formControlName="usuario" id="usuario" placeholder="Insira o Nome de Usuário"
+        />
+        <div *ngIf="f.usuario.errors?.required" class="invalid-feedback">Campo obrigatório.</div>
       </div>
+
       <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Senha:</label>
-        <input type="password" class="form-control" id="inputEmail4" placeholder="Digite uma Senha" />
+        <label for="senha" class="form-label">* Senha:</label>
+        <input type="password" class="form-control"
+        [ngClass]="{'is-invalid': f.senha.errors && f.senha.touched }"
+        formControlName="senha" id="senha" placeholder="Digite a Senha"
+        />
+        <div *ngIf="f.senha.errors?.required" class="invalid-feedback">Campo obrigatório.</div>
       </div>
+
       <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Confirmar Senha:</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Confirme a Senha" />
+        <label for="confirmarSenha" class="form-label">* Confirmar Senha:</label>
+        <input type="password" class="form-control"
+        [ngClass]="{'is-invalid': f.confirmarSenha.errors && f.confirmarSenha.touched }"
+        formControlName="confirmarSenha" id="confirmarSenha" placeholder="Confirme a Senha"
+        />
+        <div *ngIf="f.confirmarSenha.errors?.required" class="invalid-feedback">Campo obrigatório.</div>
       </div>
+
       <div class="col-12">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -50,7 +90,7 @@
           </label>
         </div>
       </div>
-      <button class="btn btn-lg btn-success btn-block px-5 w-100">
+      <button class="btn btn-lg btn-success btn-block px-5 w-100" [disabled]="!form.valid">
         Registar
       </button>
       <a class="btn btn-link " routerLink="/user/login">

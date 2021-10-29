@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-evento-detalhe',
@@ -32,7 +32,7 @@ export class EventoDetalheComponent implements OnInit {
     });
   }
 
-  resetForm(): void { 
+  resetForm(): void {
     this.form.reset();
   }
 
