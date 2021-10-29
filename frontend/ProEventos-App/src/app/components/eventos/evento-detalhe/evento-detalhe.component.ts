@@ -32,7 +32,16 @@ export class EventoDetalheComponent implements OnInit {
     });
   }
 
-  resetForm(): void {
+  onSubmit(): void {
+
+    // Vai parar aqui se estiver inválido.
+    if (this.form.invalid) {
+      return;
+    }
+  }
+
+  resetForm(event: any): void {
+    event.preventDefault();
     this.form.reset();
   }
 

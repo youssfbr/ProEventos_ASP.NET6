@@ -37,8 +37,4 @@ export class RegistrationComponent implements OnInit {
     }, formOptions);
   }
 
-  resetForm(): void {
-    this.form.reset();
-  }
-
 }

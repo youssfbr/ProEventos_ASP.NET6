@@ -82,7 +82,7 @@
 
     <div class="card-footer">
       <div class="d-flex gap-2">
-        <button class="btn btn-outline-secondary border" (click)="resetForm()">
+        <button class="btn btn-outline-secondary border" (click)="resetForm($event)">
           Cancelar Alteração
         </button>
         <button class="btn btn-success" [disabled]="!form.valid">

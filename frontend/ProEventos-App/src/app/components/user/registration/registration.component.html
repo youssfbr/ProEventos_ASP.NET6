@@ -9,10 +9,10 @@
 
   <div class="col-md-6">
 
-    <form class="row g-3 "[formGroup]="form">
+    <form class="row g-3" [formGroup]="form">
 
-      <p>Form value: {{ form.value | json }}</p>
-      <p>Form valid: {{ form.valid | json }}</p>
+      <!-- p>Form value: {{ form.value | json }}</!-->
+      <!-- p>Form valid: {{ form.valid | json }}</!-->
 
       <div class="d-block d-md-none">
         <h3 class="border-bottom">Cadastro de Usuário</h3>
@@ -63,7 +63,6 @@
         />
         <div *ngIf="f.senha.errors?.required" class="invalid-feedback">Campo obrigatório.</div>
         <div *ngIf="f.senha.errors?.minlength" class="invalid-feedback">Deve ter no mínimo 6 caracteres.</div>
-
       </div>
 
       <div class="col-md-6">
