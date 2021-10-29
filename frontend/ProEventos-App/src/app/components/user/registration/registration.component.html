@@ -62,7 +62,8 @@
         formControlName="senha" id="senha" placeholder="Digite a Senha"
         />
         <div *ngIf="f.senha.errors?.required" class="invalid-feedback">Campo obrigatório.</div>
-        <div *ngIf="f.senha.errors?.minlength" class="invalid-feedback">Não pode ser menor que 6 caracteres.</div>
+        <div *ngIf="f.senha.errors?.minlength" class="invalid-feedback">Deve ter no mínimo 6 caracteres.</div>
+
       </div>
 
       <div class="col-md-6">
@@ -72,6 +73,8 @@
         formControlName="confirmarSenha" id="confirmarSenha" placeholder="Confirme a Senha"
         />
         <div *ngIf="f.confirmarSenha.errors?.required" class="invalid-feedback">Campo obrigatório.</div>
+        <div *ngIf="f.confirmarSenha.errors?.minlength" class="invalid-feedback">Deve ter no mínimo 6 caracteres.</div>
+        <div *ngIf="f.confirmarSenha.errors?.mustMatch" class="invalid-feedback">Os campos precisam ser iguais.</div>
       </div>
 
       <div class="col-12">
